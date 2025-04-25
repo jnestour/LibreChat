@@ -125,7 +125,7 @@ actions:
 # mcpServers:
 n8n:
    type: sse
-  url: https://primary-production-1ec1.up.railway.app/mcp-test/74c82112-ef65-4939-a636-d05bf666738a/sse
+   url: https://primary-production-1ec1.up.railway.app/mcp-test/74c82112-ef65-4939-a636-d05bf666738a/sse
 #    command: npx
 #    args:
 #     - -y
@@ -182,7 +182,7 @@ endpoints:
   #   disableBuilder: false
   #   # (optional) Agent Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
   #   capabilities: ["execute_code", "file_search", "actions", "tools"]
-  custom:
+   custom:
     # Groq Example
     - name: 'groq'
       apiKey: '${GROQ_API_KEY}'
