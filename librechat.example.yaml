@@ -123,6 +123,15 @@ actions:
 
 # Example MCP Servers Object Structure
 # mcpServers:
+n8n:
+   type: sse
+  url: https://primary-production-1ec1.up.railway.app/mcp-test/74c82112-ef65-4939-a636-d05bf666738a/sse
+#    command: npx
+#    args:
+#     - -y
+#     - -header
+ #   - -Authorization: Bearer <MCP_BEARER_TOKEN>
+#     timeout: 300000  # 5 minutes timeout for this server
 #   everything:
 #     # type: sse # type can optionally be omitted
 #     url: http://localhost:3001/sse
