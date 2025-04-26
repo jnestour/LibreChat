@@ -245,7 +245,34 @@ endpoints:
       # Drop Default params parameters from the request. See default params in guide linked below.
       # NOTE: For Mistral, it is necessary to drop the following parameters or you will encounter a 422 Error:
       dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
+# Google Gemini Example
+    - name: 'google'        # Unique name for this endpoint block
+      apiKey: '${GOOGLE_API_KEY}' # Fetches from your .env file
+      # *** Read Important Considerations #3 above regarding baseURL ***
+      # Use your specific OpenAI-compatible proxy URL if you have one.
+      # Using the standard Google API URL - may require proxy/LibreChat update:
+      baseURL: 'https://generativelanguage.googleapis.com/v1beta'
 
+      models:
+        # List the Gemini models you want to make available
+        default: ['gemini-1.5-pro-latest', 'gemini-1.5-flash-latest', 'gemini-pro']
+        # Set fetch: true ONLY if your baseURL supports OpenAI-compatible model listing (unlikely for direct Google API)
+        fetch: false
+
+      # Optional configurations
+      titleConvo: true                 # Enable conversation titles
+      titleModel: 'gemini-pro'         # Model to use for titles (or 'current_model')
+      modelDisplayLabel: 'Google Gemini' # How it appears in the UI dropdown
+      iconURL: 'https://seeklogo.com/images/G/google-gemini-logo-B16A6C576C-seeklogo.com.png' # Optional: Custom icon
+
+      # Parameters common to OpenAI API that Gemini might not support or uses differently.
+      # Dropping these can prevent errors. Check Google API docs for compatibility.
+      dropParams:
+        - 'stop'
+        - 'user'
+        - 'frequency_penalty'
+        - 'presence_penalty'
+        - 'logit_bias'
     # OpenRouter Example
     - name: 'OpenRouter'
       # For `apiKey` and `baseURL`, you can use environment variables that you define.
